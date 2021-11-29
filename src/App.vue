@@ -1,18 +1,19 @@
 <template>
   <div id="app">
     <!-- Header -->
-    <Header />
+    <Header @performSearch="seacrhFilms"/>
 
     <!-- main -->
     <main>
       <!-- section-1 -->
-      <Section1 />
+      <Section1 charactersList="ListFilm"/>
     </main>
     
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import Header from '@/components/Header.vue'
 import Section1 from '@/components/Section1.vue'
 
@@ -21,7 +22,25 @@ export default {
   components: {
     Header,
     Section1,
-  }
+  },
+  data() {
+      return {
+            ListFilm: null,
+      };
+  },
+  created() {
+        this.createListFilm();
+  },
+  methods: {
+    createListFilm() {
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=c1a413784f6a50ef28c93b5091815f3e&query=star wars')
+            .then(result => {
+                console.log(result.data.results);
+                this.ListFilm = result.data.results;
+            })
+            .catch(err => console.log(err));
+    }
+  },
 }
 </script>
 

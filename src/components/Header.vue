@@ -1,8 +1,20 @@
 <template>
 <section class="container section-header">
     <div class="input-group mb-3 search">
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        <button type="button" class="btn btn-secondary">Search</button>
+        <input 
+            type="text" 
+            class="form-control" 
+            aria-label="Sizing example input" 
+            aria-describedby="inputGroup-sizing-default"
+            v-model.trim="searchText"
+        />
+        <button 
+            type="submit" 
+            class="btn btn-secondary"
+            @click.prevent="$emit('performSearch', searchText)"
+        >   
+            Search
+        </button>
     </div>
 </section>
     
@@ -10,7 +22,12 @@
 
 <script>
 export default {
-    name:'Header'
+    name:'Header',
+    data() {
+        return {
+            searchText:'',
+        }
+    }
 }
 </script>
 
