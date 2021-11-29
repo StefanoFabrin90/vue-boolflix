@@ -7,11 +7,12 @@
             aria-label="Sizing example input" 
             aria-describedby="inputGroup-sizing-default"
             v-model.trim="searchText"
+            @keyup.enter="$emit('performSearch', searchText), clearInput()"
         />
         <button 
             type="submit" 
             class="btn btn-secondary"
-            @click.prevent="$emit('performSearch', searchText)"
+            @click.prevent="$emit('performSearch', searchText), clearInput()"
         >   
             Search
         </button>
@@ -27,6 +28,11 @@ export default {
         return {
             searchText:'',
         }
+    },
+    methods: {
+        clearInput(){
+            this.searchText = '';
+        },
     },
 }
 </script>

@@ -2,7 +2,10 @@
     <div>
         <li>Titolo: {{ title }}</li>
         <li>Titolo Originale: {{ titleOriginal }}</li>
-        <li>Lingua: {{ language }}</li>
+        <li>Lingua:
+            <img v-if="getlanguageFlag" :src="require(`../assets/${this.language}.png`)" alt="">
+            <span v-else>{{ language }}</span>
+        </li>
         <li>Voto: {{ voto }}</li>
     </div>
 </template>
@@ -15,10 +18,22 @@ export default {
         titleOriginal: String,
         language: String,
         voto: Number,
-    }
+    },
+    computed: {
+        getlanguageFlag() {
+            const filmFlag = ['it', 'en'];
+            return filmFlag.includes(this.language) ? true : false;
+        },
+    },
 }
 </script>
 
 <style scoped lang="scss">
-
+li {
+    padding: 3px;
+}
+img {
+    height: 30px;
+    width: 40px;
+}
 </style>
