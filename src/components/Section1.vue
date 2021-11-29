@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+    <section class="container">
         <div class="row">
             <div class="col-12 p-2" v-for="(film, index) in charactersList" :key="`film-${index}`">
                 <ul>
@@ -13,7 +13,7 @@
                 </ul>
             </div>
         </div>
-  </section>
+    </section>
 </template>
 
 <script>

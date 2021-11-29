@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <!-- Header -->
-    <Header @performSearch="seacrhFilms"/>
+    <Header @performSearch="createListFilm"/>
 
     <!-- main -->
     <main>
       <!-- section-1 -->
-      <Section1 charactersList="ListFilm"/>
+      <Section1 :charactersList="ListFilm"/>
     </main>
     
   </div>
@@ -28,18 +28,22 @@ export default {
             ListFilm: null,
       };
   },
-  created() {
-        this.createListFilm();
-  },
   methods: {
     createListFilm() {
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=c1a413784f6a50ef28c93b5091815f3e&query=star wars')
+            axios.get('https://api.themoviedb.org/3/search/movie',
+              {
+                params: {
+                  api_key: 'c1a413784f6a50ef28c93b5091815f3e',
+                  query: 'star wars',
+                }
+              }
+            )
             .then(result => {
                 console.log(result.data.results);
                 this.ListFilm = result.data.results;
             })
             .catch(err => console.log(err));
-    }
+    },
   },
 }
 </script>
