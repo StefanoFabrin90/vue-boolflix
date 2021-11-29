@@ -3,7 +3,7 @@
         <li>Titolo: {{ title }}</li>
         <li>Titolo Originale: {{ titleOriginal }}</li>
         <li>Lingua:
-            <img v-if="getlanguageFlag" :src="require(`../assets/${this.language}.png`)" alt="">
+            <img v-if="getlanguageFlag" :src="require(`../assets/${this.language}.png`)" :alt="language">
             <span v-else>{{ language }}</span>
         </li>
         <li>Voto: {{ voto }}</li>

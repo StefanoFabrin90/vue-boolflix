@@ -32,6 +32,7 @@ export default {
     methods: {
         clearInput(){
             this.searchText = '';
+            this.$emit('performSearch', this.searchText);
         },
     },
 }
