@@ -1,7 +1,7 @@
 <template>
     <section class="container">
         <div class="row">
-            <div class="col-12 p-2" v-for="(film, index) in charactersList" :key="`film-${index}`">
+            <div class="col-12 p-2" v-for="film in charactersList" :key="`film-${film.id}`">
                 <ul>
                     <!-- card-list -->
                     <Card

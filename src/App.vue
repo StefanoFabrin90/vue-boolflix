@@ -26,23 +26,27 @@ export default {
   data() {
       return {
             ListFilm: null,
+            searchText:'',
       };
   },
   methods: {
-    createListFilm() {
-            axios.get('https://api.themoviedb.org/3/search/movie',
-              {
-                params: {
-                  api_key: 'c1a413784f6a50ef28c93b5091815f3e',
-                  query: 'star wars',
-                }
-              }
-            )
-            .then(result => {
-                console.log(result.data.results);
-                this.ListFilm = result.data.results;
-            })
-            .catch(err => console.log(err));
+    createListFilm(title) {
+      console.log(title);
+      this.searchText = title;
+
+      axios.get('https://api.themoviedb.org/3/search/movie',
+        {
+          params: {
+            api_key: 'c1a413784f6a50ef28c93b5091815f3e',
+            query: title,
+          }
+        }
+      )
+      .then(result => {
+          console.log(result.data.results);
+          this.ListFilm = result.data.results;
+      })
+      .catch(err => console.log(err));
     },
   },
 }
