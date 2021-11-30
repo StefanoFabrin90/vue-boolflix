@@ -50,9 +50,9 @@ export default {
       )
       .then(result => {
           console.log(result.data.results);
-          if(title.includes('search/movie')) {
+          if() {
             this.ListFilm = result.data.results
-          } else if (title.includes('search/tv')) {
+          } else if () {
             this.ListSerieTv = result.data.results
           }
       })
