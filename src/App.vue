@@ -2,7 +2,7 @@
   <div id="app">
     <!-- Header -->
     <Header 
-      @performSearch="createListFilm"
+      @performSearch="createListFilm, createListTv"
     />
 
     <!-- main -->
@@ -37,11 +37,10 @@ export default {
   },
   methods: {
     createListFilm(title) {
-      console.log(title);
       this.searchText = title;
-      const Url = 'https://api.themoviedb.org/3/';
 
-      axios.get(Url,{
+      axios.get('https://api.themoviedb.org/3/search/movie',
+        {
           params: {
             api_key: 'c1a413784f6a50ef28c93b5091815f3e',
             query: title,
@@ -50,11 +49,25 @@ export default {
       )
       .then(result => {
           console.log(result.data.results);
-          if(title === 'search/movie') {
-            this.ListFilm = result.data.results
-          } else if (title === 'search/tv') {
-            this.ListSerieTv = result.data.results
+          this.ListFilm = result.data.results;
+      })
+      .catch(err => console.log(err));
+    },
+
+    createListTv(title) {
+      this.searchText = title;
+
+      axios.get('https://api.themoviedb.org/3/search/tv',
+        {
+          params: {
+            api_key: 'c1a413784f6a50ef28c93b5091815f3e',
+            query: title,
           }
+        }
+      )
+      .then(result => {
+          console.log(result.data.results);
+          this.ListSerieTv = result.data.results;
       })
       .catch(err => console.log(err));
     },
