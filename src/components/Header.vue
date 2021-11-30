@@ -17,13 +17,6 @@
         >   
             Search
         </button>
-        <button 
-            type="button" 
-            class="btn btn-warning"
-            @click.prevent="clearInput"
-        >
-            Reset
-        </button>
     </div>
 </section>
     
@@ -36,11 +29,6 @@ export default {
         return {
             searchText:'',
         }
-    },
-    methods: {
-        clearInput(){
-            this.searchText = '';
-        },
     },
 }
 </script>

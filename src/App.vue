@@ -37,10 +37,13 @@ export default {
   },
   methods: {
     createList(title) {
+      this.createListFilm(title)
+      this.createListTv(title)
+    },
+
+    createListFilm (title) {
       this.searchText = title;
-      const url = ['search/movie', 'search/tv'];
-      const UrlPre = 'https://api.themoviedb.org/3/' + url
-      axios.get(UrlPre ,
+      axios.get('https://api.themoviedb.org/3/search/movie',
         {
           params: {
             api_key: 'c1a413784f6a50ef28c93b5091815f3e',
@@ -49,12 +52,25 @@ export default {
         }
       )
       .then(result => {
-          console.log(result.data.results);
-          if() {
-            this.ListFilm = result.data.results
-          } else if () {
-            this.ListSerieTv = result.data.results
+        console.log(result.data.results);
+        this.ListFilm = result.data.results
+      })
+      .catch(err => console.log(err));
+    },
+
+    createListTv (title) {
+      this.searchText = title;
+      axios.get('https://api.themoviedb.org/3/search/tv',
+        {
+          params: {
+            api_key: 'c1a413784f6a50ef28c93b5091815f3e',
+            query: title,
           }
+        }
+      )
+      .then(result => {
+        console.log(result.data.results);
+        this.ListSerieTv = result.data.results
       })
       .catch(err => console.log(err));
     },
