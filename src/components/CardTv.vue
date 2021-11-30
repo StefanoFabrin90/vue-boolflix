@@ -1,23 +1,23 @@
 <template>
     <div>
-        <li>Titolo: {{ title }}</li>
-        <li>Titolo Originale: {{ titleOriginal }}</li>
+        <li>Titolo: {{ titleTV }}</li>
+        <li>Titolo Originale: {{ titleOriginalTV }}</li>
         <li>Lingua:
             <img v-if="flag" :src="require(`../assets/${language}.png`)" :alt="language">
-            <span v-else>{{ language }}</span>
+            <span v-else>{{ languageTV }}</span>
         </li>
-        <li>Voto: {{ voto }}</li>
+        <li>Voto: {{ votoTV }}</li>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'CardList',
+    name:'CardTv',
     props: {
-        title: String,
-        titleOriginal: String,
-        language: String,
-        voto: Number,
+        titleTV: String,
+        titleOriginalTV: String,
+        languageTV: String,
+        votoTV: Number,
     },
     data() {
         return {
@@ -29,7 +29,6 @@ export default {
             return this.getFlag.includes(this.language)
         }
     }
-    
 }
 </script>
 
@@ -39,6 +38,5 @@ li {
 }
 img {
     height: 30px;
-    width: 40px;
 }
 </style>

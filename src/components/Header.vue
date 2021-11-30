@@ -3,18 +3,26 @@
     <div class="input-group mb-3 search">
         <input 
             type="text" 
+            placeholder="Inserisci la tua Ricerca"
             class="form-control" 
             aria-label="Sizing example input" 
             aria-describedby="inputGroup-sizing-default"
             v-model.trim="searchText"
-            @keyup.enter="$emit('performSearch', searchText), clearInput()"
+            @keyup.enter="$emit('performSearch', searchText)"
         />
         <button 
             type="submit" 
             class="btn btn-secondary"
-            @click.prevent="$emit('performSearch', searchText), clearInput()"
+            @click.prevent="$emit('performSearch', searchText)"
         >   
             Search
+        </button>
+        <button 
+            type="button" 
+            class="btn btn-warning"
+            @click.prevent="clearInput"
+        >
+            Reset
         </button>
     </div>
 </section>
@@ -32,7 +40,6 @@ export default {
     methods: {
         clearInput(){
             this.searchText = '';
-            this.$emit('performSearch', this.searchText);
         },
     },
 }
