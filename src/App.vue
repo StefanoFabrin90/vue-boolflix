@@ -8,10 +8,8 @@
     <!-- main -->
     <main>
       <!-- section-1 -->
-      <Section1 
-        :charactersList="ListFilm"
-        :charactersListTv="ListSerieTv"
-      />
+      <Section1 :charactersList="ListFilm"/>
+      <Section1 :charactersList="ListSerieTv"/>
     </main>
     
   </div>
@@ -79,5 +77,8 @@ export default {
 </script>
 
 <style lang="scss">
-
+* {
+  background-color: black;
+  color: white;
+}
 </style>
