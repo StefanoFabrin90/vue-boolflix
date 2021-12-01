@@ -76,7 +76,7 @@ export default {
     }
     &:hover img {
         filter: blur(var(--value, 1rem));
-        transition: filter 2s;
+        transition: filter 1.5s;
     }   
     .cover {
         img {
@@ -84,7 +84,7 @@ export default {
         }
     }
     .list {
-        color: gray;
+        color: red;
         font-weight: 700;
         position: absolute;
         overflow-y: auto;

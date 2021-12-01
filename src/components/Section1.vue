@@ -1,7 +1,7 @@
 <template>
     <section class="container">
         <div class="row">
-            <div class="col col-md-4 col-lg-3 p-3" v-for="item in charactersList" :key="`item-${item.id}`">
+            <div class="col-12 col-md-5 col-lg-3 p-3" v-for="item in charactersList" :key="`item-${item.id}`">
                 <ul class="list">
                     <!-- card-list film-->
                     <Card
