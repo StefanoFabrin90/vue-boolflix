@@ -14,23 +14,25 @@
                 :alt="title"
             />
         </div>
-        <ul class="list">
-            <li><span>Titolo:</span>  {{ title }}</li>
-            <li><span>Titolo Originale:</span> {{ titleOriginal }}</li>
-            <li>{{ overview }}</li>
-            <li class="voto">
-                <i
-                    v-for="(n, i) in stars"
-                    :key="`voto-${i}`"
-                    class="fas fa-star icon"
-                ></i>
-                <i
-                    v-for="(n, i) in 5 - stars"
-                    :key="`empty-${i}`"
-                    class="far fa-star icon"
-                ></i>
-            </li>
-        </ul>
+        <div class="list">
+            <ul>
+                <li><span>Titolo:</span>  {{ title }}</li>
+                <li><span>Titolo Originale:</span> {{ titleOriginal }}</li>
+                <li>{{ overview }}</li>
+                <li class="voto">
+                    <i
+                        v-for="(n, i) in stars"
+                        :key="`voto-${i}`"
+                        class="fas fa-star icon"
+                    ></i>
+                    <i
+                        v-for="(n, i) in 5 - stars"
+                        :key="`empty-${i}`"
+                        class="far fa-star icon"
+                    ></i>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -68,18 +70,31 @@ export default {
 }
 .cardlist {
     cursor: pointer;
+    position: relative;
+    &:hover .list {
+        display: block;
+    }
+    &:hover img {
+        filter: blur(var(--value, 1rem));
+        transition: filter 2s;
+    }   
     .cover {
         img {
-            height: 350px;
+            height: 400px
         }
     }
     .list {
+        color: gray;
+        font-weight: 700;
+        position: absolute;
+        overflow-y: auto;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
-        padding: 0;
-        opacity: 0;
-        transition: opacity .5s;
-        &:hover {
-            opacity: 1;
+        ul {
+            padding: 0;
         }
         li {
             list-style: none;
