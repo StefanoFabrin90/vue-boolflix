@@ -1,8 +1,8 @@
 <template>
     <section class="container">
         <div class="row">
-            <div class="col-4 p-2" v-for="item in charactersList" :key="`item-${item.id}`">
-                <ul class="list h-100">
+            <div class="col col-md-4 col-lg-3 p-3" v-for="item in charactersList" :key="`item-${item.id}`">
+                <ul class="list h-100 p-0">
                     <!-- card-list film-->
                     <Card
                         class="h-100 item"
@@ -36,11 +36,9 @@ export default {
 
 <style scoped lang="scss">
 .list {
-    padding: 1rem;
-    font-size: 14px;
+    font-size: 12px;
 }
 .item {
-    display: flex;
-    align-items: center;
+    background-color: #333;
 }
 </style>

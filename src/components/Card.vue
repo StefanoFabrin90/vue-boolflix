@@ -1,34 +1,37 @@
 <template>
-    <div class="card p-5">
-        <img 
-            v-if="Image !== null"
-            :src="`https://image.tmdb.org/t/p/w185${Image}`" 
-            :alt="title"
-        />
-        <img
-            class="notfound"
-            v-else
-            src="https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg" 
-            :alt="title"
-        />
-        <ul class="list">
-            <li><span>Titolo:</span>  {{ title }}</li>
-            <li><span>Titolo Originale:</span> {{ titleOriginal }}</li>
-            <li>{{ overview }}</li>
-            <li class="voto">
-                <i
-                    v-for="(n, i) in stars"
-                    :key="`voto-${i}`"
-                    class="fas fa-star icon"
-                ></i>
-                <i
-                    v-for="(n, i) in 5 - stars"
-                    :key="`empty-${i}`"
-                    class="far fa-star icon"
-                ></i>
-            </li>
-        </ul>
-        
+    <div class="cardlist">
+        <div class="cover">
+            <img 
+                v-if="Image !== null"
+                :src="`https://image.tmdb.org/t/p/w185${Image}`" 
+                :alt="title"
+            />
+            <img
+                class="notfound"
+                v-else
+                src="https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg" 
+                :alt="title"
+            />
+        </div>
+        <div class="">
+            <ul class="list">
+                <li><span>Titolo:</span>  {{ title }}</li>
+                <li><span>Titolo Originale:</span> {{ titleOriginal }}</li>
+                <li>{{ overview }}</li>
+                <li class="voto">
+                    <i
+                        v-for="(n, i) in stars"
+                        :key="`voto-${i}`"
+                        class="fas fa-star icon"
+                    ></i>
+                    <i
+                        v-for="(n, i) in 5 - stars"
+                        :key="`empty-${i}`"
+                        class="far fa-star icon"
+                    ></i>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -67,15 +70,24 @@ export default {
 .notfound {
     width: 185px;
 }
-.list {
-    li {
-        list-style: none;
-        padding: 3px;
-        span {
-            text-transform: uppercase;
-            text-decoration: underline;
-            font-size: 15px;
+.cardlist {
+    cursor: pointer;
+    .cover {
+    display: flex;
+    justify-content: center;
+    }
+    .list {
+        padding: 0;
+        li {
+            list-style: none;
+            padding: 5px;
+            span {
+                text-transform: uppercase;
+                text-decoration: underline;
+                font-size: 15px;
+            }
         }
     }
 }
+
 </style>
