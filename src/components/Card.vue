@@ -1,37 +1,36 @@
 <template>
     <div class="cardlist">
         <div class="cover">
-            <img 
+            <img
+                class="w-100"
                 v-if="Image !== null"
                 :src="`https://image.tmdb.org/t/p/w185${Image}`" 
                 :alt="title"
             />
             <img
-                class="notfound"
+                class="notfound w-100"
                 v-else
                 src="https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg" 
                 :alt="title"
             />
         </div>
-        <div class="">
-            <ul class="list">
-                <li><span>Titolo:</span>  {{ title }}</li>
-                <li><span>Titolo Originale:</span> {{ titleOriginal }}</li>
-                <li>{{ overview }}</li>
-                <li class="voto">
-                    <i
-                        v-for="(n, i) in stars"
-                        :key="`voto-${i}`"
-                        class="fas fa-star icon"
-                    ></i>
-                    <i
-                        v-for="(n, i) in 5 - stars"
-                        :key="`empty-${i}`"
-                        class="far fa-star icon"
-                    ></i>
-                </li>
-            </ul>
-        </div>
+        <ul class="list">
+            <li><span>Titolo:</span>  {{ title }}</li>
+            <li><span>Titolo Originale:</span> {{ titleOriginal }}</li>
+            <li>{{ overview }}</li>
+            <li class="voto">
+                <i
+                    v-for="(n, i) in stars"
+                    :key="`voto-${i}`"
+                    class="fas fa-star icon"
+                ></i>
+                <i
+                    v-for="(n, i) in 5 - stars"
+                    :key="`empty-${i}`"
+                    class="far fa-star icon"
+                ></i>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -67,17 +66,21 @@ export default {
     height: 30px;
     width: 40px;
 }
-.notfound {
-    width: 185px;
-}
 .cardlist {
     cursor: pointer;
     .cover {
-    display: flex;
-    justify-content: center;
+        img {
+            height: 350px;
+        }
     }
     .list {
+        height: 100%;
         padding: 0;
+        opacity: 0;
+        transition: opacity .5s;
+        &:hover {
+            opacity: 1;
+        }
         li {
             list-style: none;
             padding: 5px;

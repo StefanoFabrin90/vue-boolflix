@@ -2,7 +2,7 @@
     <section class="container">
         <div class="row">
             <div class="col col-md-4 col-lg-3 p-3" v-for="item in charactersList" :key="`item-${item.id}`">
-                <ul class="list h-100 p-0">
+                <ul class="list h-100">
                     <!-- card-list film-->
                     <Card
                         class="h-100 item"

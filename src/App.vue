@@ -78,7 +78,6 @@ export default {
 
 <style lang="scss">
 * {
-  background-color: black;
   color: white;
 }
 </style>
