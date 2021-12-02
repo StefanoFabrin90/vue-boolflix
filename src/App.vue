@@ -16,14 +16,12 @@
         <Section1 :charactersList="ListSerieTv"/>
       </section>
       <!-- section title -->
-      <section v-else>
-        <div>
-          <h1>welcome</h1>
-          <form action="">
-            <input type="text" placeholder="Username">
-            <input type="text" placeholder="Username">
-            <button type="submit" id="login-button">Login</button>
-          </form>
+      <section v-else class="d-flex justify-content-center">
+        <div class="welcome">
+          <h1 class="text-center">welcome</h1>
+          <div class="profile">
+            <img src="" alt="">
+          </div>
         </div>
       </section>
       
@@ -100,5 +98,32 @@ body {
 }
 main {
   color: white;
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-weight: 200;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+    .profile {
+      width: 200px;
+      height: 200px;
+      background-image: url('./assets/logo_small_icon_only_inverted.png');
+      background-position: center;
+      background-size: 100%;
+      border-radius: 50%;
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+      from{
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.2);
+      }
+    }
+  }
 }
 </style>
