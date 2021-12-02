@@ -4,7 +4,6 @@
     <Header 
       @performSearch="createList"
     />
-
     <!-- main -->
     <main>
       <!-- section-film -->
@@ -15,7 +14,7 @@
       <section v-if="ListSerieTv !== null">
         <Section1 :charactersList="ListSerieTv"/>
       </section>
-      <!-- section title -->
+      <!-- section welcome -->
       <section v-else class="d-flex justify-content-center">
         <div class="welcome">
           <h1 class="text-center">welcome</h1>
@@ -24,9 +23,7 @@
           </div>
         </div>
       </section>
-      
     </main>
-    
   </div>
 </template>
 
@@ -105,7 +102,7 @@ main {
     h1 {
       font-weight: 200;
       text-transform: uppercase;
-      margin-bottom: 3rem;
+      margin: 3rem;
     }
     .profile {
       width: 200px;

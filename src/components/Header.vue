@@ -22,7 +22,8 @@
         <input 
             type="text"
             placeholder="Inserisci la tua Ricerca"
-            class="form-control" 
+            class="form-control"
+            id="inputbar" 
             aria-label="Sizing example input" 
             aria-describedby="inputGroup-sizing-default"
             v-model.trim="searchText"
@@ -31,9 +32,18 @@
         <button 
             type="submit" 
             class="btn btn-danger"
+            id="button"
             @click.prevent="$emit('performSearch', searchText)"
         >   
             Search
+        </button>
+        <button 
+            type="submit" 
+            class="btn btn-secondary"
+            id="button"
+            @click.prevent="resetSearch"
+        >   
+            Reset
         </button>
     </div>
 </section>
@@ -70,6 +80,12 @@ export default {
             ],
         }
     },
+    methods: {
+        resetSearch() {
+            this.searchText='';
+            //this.$emit('performSearch', this.searchText)
+        }
+    },
 }
 </script>
 
@@ -95,8 +111,17 @@ export default {
         }
     }
     .search {
-        width: 350px;
+        width: 380px;
         height: 30%;
+        #inputbar {
+            border-radius: 0.25rem;
+        }
+        
+        #button {
+            margin-left: 10px;
+            border-radius: 0.25rem;
+        }
     }
+    
 }
 </style>
