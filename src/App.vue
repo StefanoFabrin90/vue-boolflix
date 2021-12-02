@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="">
     <!-- Header -->
     <Header 
       @performSearch="createList"
@@ -7,9 +7,26 @@
 
     <!-- main -->
     <main>
-      <!-- section-1 -->
-      <Section1 :charactersList="ListFilm"/>
-      <Section1 :charactersList="ListSerieTv"/>
+      <!-- section-film -->
+      <section v-if="ListFilm !== null">
+        <Section1 :charactersList="ListFilm"/>
+      </section>
+      <!-- section-serietv -->
+      <section v-if="ListSerieTv !== null">
+        <Section1 :charactersList="ListSerieTv"/>
+      </section>
+      <!-- section title -->
+      <section v-else>
+        <div>
+          <h1>welcome</h1>
+          <form action="">
+            <input type="text" placeholder="Username">
+            <input type="text" placeholder="Username">
+            <button type="submit" id="login-button">Login</button>
+          </form>
+        </div>
+      </section>
+      
     </main>
     
   </div>
@@ -77,8 +94,11 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  overflow-x: hidden;
+  padding-top: 200px;
+}
 main {
-  background-color: black;
   color: white;
 }
 </style>
