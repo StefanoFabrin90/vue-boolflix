@@ -91,7 +91,7 @@ export default {
 
 <style scoped lang="scss">
 .section-header {
-    background-color: black;
+    background-color: #333;
     img {
         width: 250px;
     }

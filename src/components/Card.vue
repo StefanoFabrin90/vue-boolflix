@@ -104,6 +104,9 @@ export default {
                 text-decoration: underline;
                 font-size: 15px;
             }
+            i {
+                color: gold;
+            }
         }
     }
 }
