@@ -4,9 +4,15 @@
 >
     <nav class="navbar d-flex">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-            <img src="../assets/logo_large.png">
+            <a 
+                class="navbar-brand" 
+                href="#"
+                @click.prevent="$emit('backHome')"
+            >
+                <img class="imgfirst" src="../assets/logo_large.png">
+                <img class="imgsecond" src="../assets/logo_white_large.png">
             </a>
+            
             <div class="listHeader d-flex">
                 <ul 
                     class="list p-sm-2"
@@ -109,6 +115,17 @@ export default {
                 //transform: scale(1.1);
             }
         }
+    }
+    a {
+        &:hover .imgsecond {
+            display: block;
+        }
+        &:hover .imgfirst {
+            display: none;
+        }
+    }
+    .imgsecond {
+        display: none;
     }
     .search {
         width: 380px;

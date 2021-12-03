@@ -3,6 +3,7 @@
     <!-- Header -->
     <Header 
       @performSearch="createList"
+      @backHome="backWelcome"
     />
     <!-- main -->
     <main>
@@ -40,9 +41,9 @@ export default {
   },
   data() {
       return {
-            ListFilm: null,
-            ListSerieTv: null,
-            searchText:'',
+        ListFilm: null,
+        ListSerieTv: null,
+        searchText:'',
       };
   },
   methods: {
@@ -84,6 +85,10 @@ export default {
       })
       .catch(err => console.log(err));
     },
+    backWelcome() {
+      this.ListFilm= null;
+      this.ListSerieTv= null;
+    }
   },
 }
 </script>
